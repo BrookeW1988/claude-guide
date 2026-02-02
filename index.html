@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Code: The Non-Technical Playbook</title>
+    <title>Claude Code for Founders: The Non Techinical Playbook/title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js -->
@@ -11,21 +11,21 @@
 
     <!-- Chosen Palette: Warm Neutrals / Stone & Sand -->
     <!-- Application Structure Plan: 
-         Designed as a "Digital Learning Companion" (Dashboard Style).
-         1. **Hero/Overview**: Sets the stage with the "Vibe Coding" philosophy.
-         2. **The Structure (WAT Framework)**: An interactive "File Explorer" simulation.
-         3. **The Brain (System Prompt)**: A visual breakdown of the `claude.md` file.
-         4. **The Workflow**: A linear, interactive stepper for the 6-step lifecycle.
-         5. **Best Practices**: A grid of actionable cards.
-         
-         REMOVED: AI Lab section for security and token management when publishing.
+         Designed as a "Founder's Learning Companion" (Dashboard Style).
+         1. **Hero/Vision**: Focusing on delegating to code through vision.
+         2. **The Digital Workspace (WAT Framework)**: Folders explained as a virtual office.
+         3. **The Brain (claude.md)**: Breakdown of the core manual for the AI.
+         4. **The Vault (.env)**: Security explained simply for non-tech founders.
+         5. **Founder's Use Cases**: Practical tabs showing real-world business applications.
+         6. **Key Best Practices**: Quick-reference cards for essential safety and efficiency.
+         7. **The Development Workflow**: The original 6-step numbered process.
     -->
     
     <!-- Visualization & Content Choices:
-         1. **Success Probability (Bar Chart)**: Inform/Persuade. Chart.js Bar.
-         2. **Prompt Composition (Doughnut Chart)**: Inform/Analyze. Chart.js Doughnut.
-         3. **Interactive File Tree (HTML/JS)**: Organize/Explore. Styled HTML.
-         4. **Workflow Stepper (HTML/JS)**: Change/Process. Flexbox timeline.
+         1. **Success vs. Detail (Bar Chart)**: Visualizing the ROI of clarity.
+         2. **The Brain Breakdown (Doughnut Chart)**: The 3 parts of the manual.
+         3. **Interactive Explorer**: Folder simulation.
+         4. **Development Workflow Stepper**: 6-step progress tracker.
          
          CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
     -->
@@ -69,10 +69,10 @@
             margin-right: auto;
         }
         @media (min-width: 768px) {
-            .chart-container { height: 300px; max-height: 400px; max-width: 600px; }
+            .chart-container { height: 280px; max-height: 350px; max-width: 500px; }
         }
         @media (max-width: 767px) {
-            .chart-container { height: 250px; max-height: 300px; max-width: 100%; }
+            .chart-container { height: 220px; max-height: 250px; max-width: 100%; }
         }
 
         .nav-item.active {
@@ -104,57 +104,61 @@
 
     <!-- Mobile Header -->
     <div class="md:hidden bg-stone-900 text-stone-50 p-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
-        <h1 class="text-lg font-bold">Claude Code Guide</h1>
+        <h1 class="text-lg font-bold">Founder's Guide</h1>
         <button id="mobile-menu-btn" class="text-stone-300 hover:text-white focus:outline-none text-2xl">☰</button>
     </div>
 
     <!-- Sidebar Navigation -->
     <nav id="sidebar" class="hidden md:flex flex-col w-64 bg-stone-100 border-r border-stone-200 h-screen sticky top-0 overflow-y-auto">
         <div class="p-6 border-b border-stone-200">
-            <h1 class="text-xl font-bold text-stone-800 tracking-tight">Claude Code<br><span class="text-accent text-sm font-normal">Beginner's Playbook</span></h1>
+            <h1 class="text-xl font-bold text-stone-800 tracking-tight">Claude Code<br><span class="text-accent text-sm font-normal">Founder's Companion</span></h1>
         </div>
         <div class="flex-col py-4 space-y-1">
-            <button onclick="scrollToSection('intro')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">1. The Philosophy</button>
-            <button onclick="scrollToSection('structure')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">2. WAT Structure</button>
+            <button onclick="scrollToSection('vision')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">1. Speaking Your Vision</button>
+            <button onclick="scrollToSection('structure')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">2. Your Digital Office</button>
             <button onclick="scrollToSection('brain')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">3. The Brain (claude.md)</button>
-            <button onclick="scrollToSection('workflow')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">4. Workflow Steps</button>
-            <button onclick="scrollToSection('practices')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">5. Best Practices</button>
+            <button onclick="scrollToSection('vault')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">4. The Vault (.env)</button>
+            <button onclick="scrollToSection('usecases')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">5. Founder Use Cases</button>
+            <button onclick="scrollToSection('practices')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">6. Best Practices</button>
+            <button onclick="scrollToSection('workflow')" class="nav-item w-full text-left px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors">7. Development Workflow</button>
         </div>
-        <div class="mt-auto p-6 text-xs text-stone-400">Based on the WAT Framework</div>
+        <div class="mt-auto p-6 text-xs text-stone-400">Simple Language for Big Ideas</div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden fixed inset-0 bg-stone-900 bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-6 text-xl text-stone-50 md:hidden">
-        <button onclick="scrollToSection('intro'); toggleMobileMenu()" class="hover:text-accent">The Philosophy</button>
-        <button onclick="scrollToSection('structure'); toggleMobileMenu()" class="hover:text-accent">WAT Structure</button>
+        <button onclick="scrollToSection('vision'); toggleMobileMenu()" class="hover:text-accent">Vision</button>
+        <button onclick="scrollToSection('structure'); toggleMobileMenu()" class="hover:text-accent">The Office</button>
         <button onclick="scrollToSection('brain'); toggleMobileMenu()" class="hover:text-accent">The Brain</button>
-        <button onclick="scrollToSection('workflow'); toggleMobileMenu()" class="hover:text-accent">Workflow Steps</button>
+        <button onclick="scrollToSection('vault'); toggleMobileMenu()" class="hover:text-accent">The Vault</button>
+        <button onclick="scrollToSection('usecases'); toggleMobileMenu()" class="hover:text-accent">Use Cases</button>
         <button onclick="scrollToSection('practices'); toggleMobileMenu()" class="hover:text-accent">Best Practices</button>
+        <button onclick="scrollToSection('workflow'); toggleMobileMenu()" class="hover:text-accent">Workflow</button>
         <button onclick="toggleMobileMenu()" class="mt-8 text-sm text-stone-400">Close</button>
     </div>
 
     <!-- Main Content -->
     <main class="flex-1 p-4 md:p-8 lg:p-12 overflow-y-auto max-w-7xl mx-auto">
         
-        <!-- Section 1: Philosophy -->
-        <section id="intro" class="mb-16 scroll-mt-20">
+        <!-- Section 1: Vision -->
+        <section id="vision" class="mb-16 scroll-mt-20">
             <div class="mb-6">
-                <span class="text-accent font-semibold tracking-wider uppercase text-xs">Core Concept</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">Vibe Coding vs. Structured Plans</h2>
+                <span class="text-accent font-semibold tracking-wider uppercase text-xs">The Founder's Power</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">Speaking Your Vision</h2>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div class="space-y-4 text-stone-600 leading-relaxed">
-                    <p class="text-lg font-medium text-stone-800">Stop writing code. Start describing outcomes.</p>
-                    <p>The core philosophy of Claude Code is "Vibe Coding"—describing the result you want rather than the syntax. However, vague vibes lead to vague software.</p>
+                    <p class="text-lg font-medium text-stone-800">You don't need to learn code. You need to learn how to delegate to code.</p>
+                    <p>Think of Claude Code as a tireless, highly skilled engineer. Your job isn't to tell it <em>how</em> to build, but to be incredibly clear about <em>what</em> you want for your business. If you can describe it clearly, Claude can build it.</p>
                     <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200 mt-4">
-                        <h3 class="font-bold text-stone-800 mb-2">💡 The "Ask Me Questions" Rule</h3>
-                        <p class="text-sm">Don't just say "Make a chore app." Instead, use this prompt:</p>
-                        <blockquote class="border-l-4 border-accent pl-4 italic text-stone-700 my-3 bg-stone-50 py-2">"I want to build a chore app. Before you write any code, <strong>ask me 5-10 questions</strong> to clarify my requirements, tech stack, and goals."</blockquote>
+                        <h3 class="font-bold text-stone-800 mb-2">💡 The Golden Rule: Use a Question Loop</h3>
+                        <p class="text-sm">Vague ideas lead to vague results. Before you let Claude build anything, use this phrase:</p>
+                        <blockquote class="border-l-4 border-accent pl-4 italic text-stone-700 my-3 bg-stone-50 py-2">"I want to build [My Idea]. Before you start, <strong>ask me 5 questions</strong> to make sure you understand exactly what I need."</blockquote>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
-                    <h3 class="text-center text-sm font-semibold text-stone-500 mb-4 uppercase tracking-wide">Project Success Probability</h3>
+                    <h3 class="text-center text-sm font-semibold text-stone-500 mb-4 uppercase tracking-wide">Results: Vague Vibes vs. Clear Vision</h3>
                     <div class="chart-container"><canvas id="philosophyChart"></canvas></div>
                 </div>
             </div>
@@ -162,16 +166,16 @@
 
         <hr class="border-stone-200 mb-16">
 
-        <!-- Section 2: Structure (WAT) -->
+        <!-- Section 2: Structure -->
         <section id="structure" class="mb-16 scroll-mt-20">
             <div class="mb-6">
-                <span class="text-accent font-semibold tracking-wider uppercase text-xs">Organization</span>
-                <h2 class="text-3xl font-bold text-stone-900 mt-2">The WAT Framework</h2>
-                <p class="mt-4 text-stone-600 max-w-3xl">Understanding the folder structure is key for non-technical beginners. It acts as a clean workspace for the AI agent.</p>
+                <span class="text-accent font-semibold tracking-wider uppercase text-xs">Setup</span>
+                <h2 class="text-3xl font-bold text-stone-900 mt-2">Your Digital Office</h2>
+                <p class="mt-4 text-stone-600 max-w-3xl">When you start a project, you create a "Workspace." Inside, we put things in specific folders so the AI doesn't get lost. Think of it like a clean desk policy.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 min-h-[400px]">
                 <div class="col-span-1 bg-stone-900 rounded-lg p-4 text-stone-300 font-mono text-sm overflow-y-auto shadow-lg">
-                    <div class="text-xs text-stone-500 mb-2 border-b border-stone-700 pb-2 uppercase">Explorer</div>
+                    <div class="text-xs text-stone-500 mb-2 border-b border-stone-700 pb-2 uppercase">File Explorer</div>
                     <ul class="space-y-2 cursor-pointer select-none">
                         <li data-key="claude" class="file-item p-2 rounded hover:bg-stone-800" onclick="showFileDetails('claude')">📄 claude.md</li>
                         <li data-key="workflows" class="file-item p-2 rounded hover:bg-stone-800" onclick="showFileDetails('workflows')">📂 workflows/</li>
@@ -181,12 +185,12 @@
                 </div>
                 <div class="col-span-1 md:col-span-2 bg-white rounded-lg border border-stone-200 p-6 flex flex-col justify-center relative shadow-sm">
                     <div id="file-detail-content">
-                        <h3 class="text-2xl font-bold text-stone-800 mb-2" id="detail-title">Select a File</h3>
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2" id="detail-title">Select a Folder</h3>
                         <div class="text-sm font-mono text-accent mb-4" id="detail-type">--</div>
-                        <p class="text-stone-600 leading-relaxed" id="detail-desc">Click items in the explorer to see how the project is organized.</p>
+                        <p class="text-stone-600 leading-relaxed" id="detail-desc">Click the files on the left to see what each one does for your business.</p>
                         <div class="mt-6 p-4 bg-stone-50 rounded border border-stone-100 hidden" id="detail-example-box">
-                            <h4 class="text-xs font-bold uppercase text-stone-400 mb-1">Example Content</h4>
-                            <p class="text-sm font-mono text-stone-700 whitespace-pre-wrap" id="detail-example">...</p>
+                            <h4 class="text-xs font-bold uppercase text-stone-400 mb-1">Simple Explanation</h4>
+                            <p class="text-sm font-sans text-stone-700 whitespace-pre-wrap italic" id="detail-example">...</p>
                         </div>
                     </div>
                 </div>
@@ -198,9 +202,9 @@
         <!-- Section 3: The Brain (claude.md) -->
         <section id="brain" class="mb-16 scroll-mt-20">
             <div class="mb-6">
-                <span class="text-accent font-semibold tracking-wider uppercase text-xs">System Prompt</span>
+                <span class="text-accent font-semibold tracking-wider uppercase text-xs">The Manual</span>
                 <h2 class="text-3xl font-bold text-stone-900 mt-2">The Brain: `claude.md`</h2>
-                <p class="mt-4 text-stone-600 max-w-3xl">This file is the single most important part of "Claude Code". It tells the AI exactly who it is and what the project rules are.</p>
+                <p class="mt-4 text-stone-600 max-w-3xl">This is a single text file that Claude reads every time it starts working for you. It holds the "rules of the house."</p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
@@ -208,16 +212,16 @@
                 </div>
                 <div class="space-y-4">
                     <div id="layer-info-1" class="layer-info p-4 border-l-4 border-stone-300 hover:border-accent hover:bg-stone-50 transition-all cursor-pointer" onclick="highlightSegment(0)">
-                        <h4 class="font-bold text-lg text-stone-800">1. Tech Stack</h4>
-                        <p class="text-stone-600 text-sm">Frameworks, languages, and tools being used.</p>
+                        <h4 class="font-bold text-lg text-stone-800">1. Technical Specs</h4>
+                        <p class="text-stone-600 text-sm">What kind of engine are we using? (e.g., A mobile website or a data tracker).</p>
                     </div>
                     <div id="layer-info-2" class="layer-info p-4 border-l-4 border-stone-300 hover:border-accent hover:bg-stone-50 transition-all cursor-pointer" onclick="highlightSegment(1)">
-                        <h4 class="font-bold text-lg text-stone-800">2. Purpose</h4>
-                        <p class="text-stone-600 text-sm">The primary goal and target audience of the application.</p>
+                        <h4 class="font-bold text-lg text-stone-800">2. Business Purpose</h4>
+                        <p class="text-stone-600 text-sm">The "Why". Who is this for? What problem is it solving for your business?</p>
                     </div>
                     <div id="layer-info-3" class="layer-info p-4 border-l-4 border-stone-300 hover:border-accent hover:bg-stone-50 transition-all cursor-pointer" onclick="highlightSegment(2)">
-                        <h4 class="font-bold text-lg text-stone-800">3. Rules</h4>
-                        <p class="text-stone-600 text-sm">Strict behavioral constraints and coding standards.</p>
+                        <h4 class="font-bold text-lg text-stone-800">3. Brand Voice & Rules</h4>
+                        <p class="text-stone-600 text-sm">Your standards. "Use warm language" or "Stick to neutral brand colors."</p>
                     </div>
                 </div>
             </div>
@@ -225,10 +229,133 @@
 
         <hr class="border-stone-200 mb-16">
 
-        <!-- Section 4: Workflow -->
+        <!-- Section 4: The Vault (.env) -->
+        <section id="vault" class="mb-16 scroll-mt-20">
+            <div class="mb-6">
+                <span class="text-accent font-semibold tracking-wider uppercase text-xs">Security</span>
+                <h2 class="text-3xl font-bold text-stone-900 mt-2">The Vault (.env): Protecting Your Keys</h2>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-200">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h3 class="text-xl font-bold text-stone-800 mb-4">What is an API Key?</h3>
+                        <p class="text-stone-600 leading-relaxed mb-6">
+                            Think of an <strong>API Key</strong> as a <strong>Digital Keycard</strong>. It's a secret code that lets Claude "unlock" other apps—like your Gmail, shop inventory, or a shipping service.
+                        </p>
+                        <div class="bg-stone-900 rounded-lg p-4 text-stone-400 font-mono text-sm mb-6 border border-stone-700">
+                            # Your secret .env file<br>
+                            GOOGLE_API_KEY=123-abc-456-xyz
+                        </div>
+                        <h3 class="text-xl font-bold text-stone-800 mb-4">Why use the `.env` file?</h3>
+                        <p class="text-stone-600 leading-relaxed">
+                            The <strong>.env</strong> file is <strong>The Vault</strong>. You put your digital keycards in here so Claude can use them, but <strong>no human eyes</strong> can see them when looking at the code. It keeps your business accounts safe.
+                        </p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-xl border border-stone-200 space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-stone-800 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">!</div>
+                            <div>
+                                <h4 class="font-bold text-stone-800">Never paste keys in chat</h4>
+                                <p class="text-sm text-stone-600">Don't give Claude your actual API key directly in the message box. Ask it to "Help me save this key to my .env file" instead.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-stone-800 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">!</div>
+                            <div>
+                                <h4 class="font-bold text-stone-800">The Vault is Invisible</h4>
+                                <p class="text-sm text-stone-600">The .env file is usually hidden from public view automatically. It's designed to be your private digital safe.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-stone-200 mb-16">
+
+        <!-- Section 5: Use Cases -->
+        <section id="usecases" class="mb-16 scroll-mt-20">
+            <div class="mb-8">
+                <span class="text-accent font-semibold tracking-wider uppercase text-xs">Inspiration</span>
+                <h2 class="text-3xl font-bold text-stone-900 mt-2">Founder Use Cases</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-3xl mb-4">📊</div>
+                    <h3 class="font-bold text-stone-800 mb-2">KPI Dashboards</h3>
+                    <p class="text-sm text-stone-600 italic">Build a single page that connects to your data and shows your monthly sales growth in real-time.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-3xl mb-4">🤖</div>
+                    <h3 class="font-bold text-stone-800 mb-2">Customer Automation</h3>
+                    <p class="text-sm text-stone-600 italic">Create a tool that reads feedback and drafts friendly responses for you to approve before sending.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-3xl mb-4">📦</div>
+                    <h3 class="font-bold text-stone-800 mb-2">Inventory Management</h3>
+                    <p class="text-sm text-stone-600 italic">Have a dashboard that alerts you exactly when your top-selling items are running low.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-stone-200 mb-16">
+
+        <!-- Section 6: Key Best Practices -->
+        <section id="practices" class="mb-16 scroll-mt-20">
+            <div class="mb-8">
+                <span class="text-accent font-semibold tracking-wider uppercase text-xs">Success Habits</span>
+                <h2 class="text-3xl font-bold text-stone-900 mt-2">Key Best Practices</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl mr-4">🧠</span>
+                        <h3 class="text-xl font-bold text-stone-800">"Plan Mode" First</h3>
+                    </div>
+                    <p class="text-stone-600 text-sm mb-4">Before letting Claude write code, use <strong>Shift + Tab</strong> to enter Plan Mode. This lets you review the logic before any files are changed.</p>
+                    <div class="bg-stone-50 p-3 rounded text-xs text-stone-500 italic border-l-2 border-accent">
+                        Review the plan as a CEO. If you don't like the design, change it before the build starts.
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl mr-4">💾</span>
+                        <h3 class="text-xl font-bold text-stone-800">Commit Often</h3>
+                    </div>
+                    <p class="text-stone-600 text-sm mb-4">Use Git to save working versions of your app. Think of it as hitting "Save As" on your work every time a feature works.</p>
+                    <div class="bg-stone-50 p-3 rounded text-xs text-stone-500 italic border-l-2 border-accent">
+                        If Claude "breaks" a feature, you can instantly revert to the last working version.
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl mr-4">🚦</span>
+                        <h3 class="text-xl font-bold text-stone-800">Standard vs. YOLO</h3>
+                    </div>
+                    <p class="text-stone-600 text-sm mb-4"><strong>Standard Mode</strong> asks for your permission before every change. <strong>YOLO Mode</strong> runs automatically. </p>
+                    <div class="bg-stone-50 p-3 rounded text-xs text-stone-500 italic border-l-2 border-accent">
+                        Beginner Founders should use Standard Mode to stay in control of the build.
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl mr-4">🔑</span>
+                        <h3 class="text-xl font-bold text-stone-800">Secure Secrets</h3>
+                    </div>
+                    <p class="text-stone-600 text-sm mb-4">Always keep API keys in the <strong>.env</strong> file. Never type passwords directly into the chat box where they can be saved.</p>
+                    <div class="bg-stone-50 p-3 rounded text-xs text-stone-500 italic border-l-2 border-accent">
+                        The .env file is your digital vault. It keeps your business credentials private.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-stone-200 mb-16">
+
+        <!-- Section 7: Workflow -->
         <section id="workflow" class="mb-16 scroll-mt-20">
             <div class="mb-6 text-center">
-                <span class="text-accent font-semibold tracking-wider uppercase text-xs">Lifecycle</span>
+                <span class="text-accent font-semibold tracking-wider uppercase text-xs">Methodology</span>
                 <h2 class="text-3xl font-bold text-stone-900 mt-2">The Development Workflow</h2>
                 <p class="mt-4 text-stone-600">Follow these steps in order to build high-quality software without code experience.</p>
             </div>
@@ -242,46 +369,35 @@
                     <button class="step-circle w-12 h-12 rounded-full border-2 border-stone-300 flex items-center justify-center font-bold text-stone-600 hover:bg-accent hover:text-white" onclick="setWorkflowStep(5)">5</button>
                     <button class="step-circle w-12 h-12 rounded-full border-2 border-stone-300 flex items-center justify-center font-bold text-stone-600 hover:bg-accent hover:text-white" onclick="setWorkflowStep(6)">6</button>
                 </div>
-                <div class="bg-stone-50 rounded-lg p-8 text-center">
+                <div class="bg-stone-50 rounded-lg p-8 text-center min-h-[160px] flex flex-col justify-center">
                     <h3 id="wf-title" class="text-2xl font-bold text-stone-800 mb-2">Initialize</h3>
-                    <p id="wf-desc" class="text-stone-600 mb-4 text-lg">Create a folder and a `claude.md` file.</p>
-                    <div id="wf-tip" class="inline-block bg-white border border-stone-200 text-accent px-4 py-2 rounded-full text-sm font-medium">Tip: Start clean.</div>
+                    <p id="wf-desc" class="text-stone-600 mb-4 text-lg">Create your project folder and start "The Brain" (`claude.md`) file.</p>
+                    <div id="wf-tip" class="inline-block bg-white border border-stone-200 text-accent px-4 py-2 rounded-full text-sm font-medium">Tip: Set the ground rules first.</div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 5: Best Practices -->
-        <section id="practices" class="mb-20 scroll-mt-20">
-             <div class="mb-8"><h2 class="text-3xl font-bold text-stone-900 mt-2">Key Best Practices</h2></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-lg border border-stone-200"><h3 class="text-xl font-bold text-stone-800 mb-2">🧠 "Plan Mode" First</h3><p class="text-stone-600 text-sm">Shift + Tab to enter Plan Mode. Review logic before Claude changes files.</p></div>
-                <div class="bg-white p-6 rounded-lg border border-stone-200"><h3 class="text-xl font-bold text-stone-800 mb-2">💾 Commit Often</h3><p class="text-stone-600 text-sm">Use Git to save working versions. Revert if Claude "breaks" the app.</p></div>
-                <div class="bg-white p-6 rounded-lg border border-stone-200"><h3 class="text-xl font-bold text-stone-800 mb-2">🚦 Standard vs YOLO</h3><p class="text-stone-600 text-sm">Standard asks permission. YOLO runs automatic. Beginners should use Standard.</p></div>
-                <div class="bg-white p-6 rounded-lg border border-stone-200"><h3 class="text-xl font-bold text-stone-800 mb-2">🔑 Secure Secrets</h3><p class="text-stone-600 text-sm">Hide API keys in `.env`. Never type passwords directly into the chat.</p></div>
-            </div>
-        </section>
-
         <footer class="text-center text-stone-400 text-sm pb-8 pt-8 border-t border-stone-200">
-            <p>Interactive Guide for Non-Technical Beginners</p>
+            <p>Empowering Visionary Founders to Build Their Future.</p>
         </footer>
     </main>
 
     <!-- JavaScript Logic -->
     <script>
         const fileData = {
-            'claude': { title: 'claude.md', type: 'Markdown (.md)', desc: 'The "Brain" file. Contains role, purpose, tech stack, and behavioral rules.', example: '# Role: Expert React Dev\n# Purpose: Build a Todo App\n# Rules: Use TypeScript' },
-            'workflows': { title: 'workflows/', type: 'Directory', desc: 'SOPs and step-by-step guides for specific tasks.', example: 'deployment_workflow.md\ntesting_workflow.md' },
-            'tools': { title: 'tools/', type: 'Directory', desc: 'Executable scripts that perform specific actions (sending emails, scraping data).', example: 'email_sender.py\nscraper.py' },
-            'env': { title: '.env', type: 'Config', desc: 'The Vault. Stores private API keys and secrets. Not shared with others.', example: 'API_KEY=12345xxxx' }
+            'claude': { title: 'claude.md', type: 'The Brain', desc: 'The "instruction manual" for your project. Tells Claude your business goals.', example: 'Think of this as the onboarding document you give a new executive assistant. It defines what the company does and how you like things done.' },
+            'workflows': { title: 'workflows/', type: 'The Playbooks', desc: 'Step-by-step guides for the AI to follow for recurring tasks.', example: 'If you want Claude to generate a weekly report, the "Playbook" for that report goes in this folder so it stays consistent.' },
+            'tools': { title: 'tools/', type: 'The Workers', desc: 'The specialized parts that actually DO the technical work.', example: 'These are like individual employees hired for one specific task—like "The employee who only pulls sales data from Shopify."' },
+            'env': { title: '.env', type: 'The Vault', desc: 'Where your digital keycards (API keys) are kept safe and hidden.', example: 'You put your private passwords and keys in here so the app can function, but no human ever sees them when looking at your code.' }
         };
 
         const workflowSteps = [
-            { title: "Initialize", desc: "Create a folder and a `claude.md` file.", tip: "This sets the rules for the session." },
-            { title: "Plan", desc: "Use Shift+Tab for Plan Mode. Ask Claude to create a 'Technical Plan'.", tip: "Plan before coding." },
-            { title: "Refine", desc: "Feedback loop: 'Make the buttons blue' or 'Add a login'.", tip: "Don't code until the plan is perfect." },
-            { title: "Execute", desc: "Let Claude build files in tools/ and workflows/.", tip: "Watch files appear in VS Code." },
-            { title: "Test", desc: "Ask Claude to 'Run the app and check for bugs'.", tip: "Catch errors early." },
-            { title: "Deploy", desc: "Once happy, ask Claude to 'Help me deploy this to the cloud'.", tip: "Go live!" }
+            { title: "Initialize", desc: "Create your project folder and start 'The Brain' (`claude.md`) file.", tip: "Tip: Set the ground rules first." },
+            { title: "Plan", desc: "Use Shift+Tab for 'Plan Mode'. Ask Claude to draft exactly how it will solve your business problem.", tip: "Tip: Review the plan like a CEO." },
+            { title: "Refine", desc: "Provide feedback: 'Make the design more high-end' or 'Simplify the checkout process'.", tip: "Tip: Don't build until the plan is perfect." },
+            { title: "Execute", desc: "Let Claude build the actual engine (Tools and Workflows) based on your plan.", tip: "Tip: Watch the files appear as the build starts." },
+            { title: "Test", desc: "Ask Claude to 'Run the app and check for bugs'.", tip: "Catch errors early and fix them before launch." },
+            { title: "Deploy", desc: "Claude helps you put your new tool live so your team or customers can start using it.", tip: "Tip: Celebrate your first AI-built product!" }
         ];
 
         // --- UI Interactions ---
@@ -327,22 +443,33 @@
             new Chart(philosophyCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['No Plan', 'Vague Vibes', 'Structured Plans'],
+                    labels: ['Vague Vibes', 'Basic Orders', 'Detailed Vision'],
                     datasets: [{
-                        label: 'Success Rate',
-                        data: [15, 40, 95],
+                        label: 'Project Quality',
+                        data: [20, 50, 95],
                         backgroundColor: ['#d6d3d1', '#a8a29e', '#ea580c'],
                         borderRadius: 8
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100 } } }
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { display: false } }, 
+                    scales: { 
+                        y: { 
+                            beginAtZero: true, 
+                            max: 100,
+                            ticks: { callback: (v) => v + '%' }
+                        } 
+                    } 
+                }
             });
 
             const brainCtx = document.getElementById('brainChart').getContext('2d');
             new Chart(brainCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Tech Stack', 'Purpose', 'Rules'],
+                    labels: ['Engine Specs', 'Business Purpose', 'House Rules'],
                     datasets: [{ data: [33, 33, 33], backgroundColor: ['#78716c', '#ea580c', '#292524'], borderWidth: 0 }]
                 },
                 options: { responsive: true, maintainAspectRatio: false, cutout: '70%', plugins: { legend: { position: 'bottom' } } }
